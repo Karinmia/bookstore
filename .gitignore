@@ -1,0 +1,7 @@
+*.pyc
+*~
+__pycache__
+.idea
+Dockerfile
+docker-compose.yml
+db.sqlite3
