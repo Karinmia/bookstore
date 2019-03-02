@@ -1,7 +1,13 @@
 *.pyc
 *~
 __pycache__
+.pytest_cache/
 .idea
 Dockerfile
 docker-compose.yml
-db.sqlite3
+
+.env
+.envs/*
+!.envs/.local/
+
+bookstore/media/
