@@ -1,0 +1,32 @@
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.book-list {
+    margin-top: 30px;
+}
+
+.book-block {
+    border: 1px solid #ff9400;
+}
+
+.book {
+    padding: 0 10px 8px 0px;
+    background-color: whitesmoke;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /*padding-bottom: 20px;*/
+    color: white;
+    text-align: center;
+}
+
+.footer p {
+    margin: 20px 0 20px 0;
+}
