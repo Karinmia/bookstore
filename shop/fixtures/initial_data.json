@@ -1,0 +1,98 @@
+[
+  {
+    "model": "shop.book",
+    "pk": "67706ee6-c6ce-4481-a8f7-bfd185e27bda",
+    "fields": {
+      "isbn": "978-5-699-34137-5",
+      "title": "Martin Eden",
+      "author": "Jack London",
+      "description": "\"Martin Eden\" - the most famous novel by Jack London, first published in 1908-1909. In many ways, the autobiographical book about a man who \"made himself.\" Encourages the hero to engage in self-education. He becomes a writer, but all publishers refuse him publications. This often happens in life when he refuses his girlfriend, he finally becomes famous. Martina because of disappointment in this thoroughly fake life.",
+      "price": 5.00,
+      "publish_date": "1909-09-01"
+    }
+  },
+  {
+    "model": "shop.book",
+    "pk": "ffb8bf83-0de0-4d43-8a94-72c7780ddb9c",
+    "fields": {
+      "isbn": "347-2-699-34137-2",
+      "title": "1984",
+      "author": "George Orwell",
+      "description": "A kind of antipode of the second great anti-utopia of the 20th century - “O Brave New World” by Aldous Huxley What, in essence, is more frightening: the \"consumer society\" brought to an absurdity - or the \"society of an idea\" brought to an absolute? According to Orwell, there is and there can be nothing worse than total non-freedom ...",
+      "price": 8.20,
+      "publish_date": "1949-06-08"
+    }
+  },
+  {
+    "model": "shop.book",
+    "pk": "b07ffde9-884e-4a15-8488-33454e879449",
+    "fields": {
+      "isbn": "347-2-699-34137-2",
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "description": "Brave New World is a dystopian novel written in 1931 by English author Aldous Huxley, and published in 1932. Largely set in a futuristic World State of genetically modified citizens and an intelligence-based social hierarchy, the novel anticipates huge scientific developments in reproductive technology, sleep-learning, psychological manipulation, and classical conditioning that are combined to make a utopian society that goes challenged only by a single outsider.",
+      "price": 6.25,
+      "publish_date": "1950-04-01"
+    }
+  },
+  {
+    "model": "shop.book",
+    "pk": "4d0a05de-b25a-49bc-a186-83226fd7f9af",
+    "fields": {
+      "isbn": "322-4-699-34137-4",
+      "title": "The Old Man and The Sea",
+      "author": "Ernest Hemingway",
+      "description": "The Old Man and the Sea is a short novel written by the American author Ernest Hemingway in 1951 in Cuba, and published in 1952. It was the last major work of fiction by Hemingway that was published during his lifetime. One of his most famous works, it tells the story of Santiago, an aging Cuban fisherman who struggles with a giant marlin far out in the Gulf Stream off the coast of Cuba.",
+      "price": 7.50,
+      "publish_date": "1985-05-10"
+    }
+  },
+  {
+    "model": "shop.book",
+    "pk": "828e83dd-b71a-49fa-8a6b-5c46e2de46dc",
+    "fields": {
+      "isbn": "322-4-626-97737-4",
+      "title": "For Whom The Bell Tolls",
+      "author": "Ernest Hemingway",
+      "description": "For Whom the Bell Tolls is a novel by Ernest Hemingway published in 1940. It tells the story of Robert Jordan, a young American in the International Brigades attached to a republican guerrilla unit during the Spanish Civil War. As a dynamiter, he is assigned to blow up a bridge during an attack on the city of Segovia.",
+      "price": 5.50,
+      "publish_date": "2000-02-02"
+    }
+  },
+  {
+    "model": "shop.book",
+    "pk": "f10de454-7de5-49b4-a1c5-561757aea118",
+    "fields": {
+      "isbn": "843-5-266-91197-5",
+      "title": "Anna Karenina",
+      "author": "Lev Tolstoy",
+      "description": "Anna Karenina is the tragic story of Countess Anna Karenina, a married noblewoman and socialite, and her affair with the affluent Count Vronsky. The story starts when she arrives in the midst of a family broken up by her brother's unbridled womanizing—something that prefigures her own later situation, though she would experience less tolerance by others.",
+      "price": 8.20,
+      "publish_date": "1990-11-02"
+    }
+  },
+  {
+   "model": "shop.book",
+   "pk": "54dab471-26f2-400c-ad07-c17910c7463e",
+    "fields": {
+      "isbn": "825-5-211-42298-5",
+      "title": "War and Peace",
+      "author": "Lev Tolstoy",
+      "description": "As the Russian conflict with Napoleon reaches its peak, five aristocratic families face the possibility of their lives being changed forever.",
+      "price": 13.00,
+      "publish_date": "1994-04-12"
+    }
+  },
+  {
+   "model": "shop.book",
+   "pk": "9581de89-b527-48de-83d7-5e6d2b818152",
+    "fields": {
+      "isbn": "836-7-116-10833-7",
+      "title": "The Door Into Summer",
+      "author": "Robert Highline",
+      "description": "The Door into Summer is a science fiction novel by American writer Robert A. Heinlein, originally serialized in The Magazine of Fantasy & Science Fiction (October, November, December 1956, with covers and interior illustrations by Frank Kelly Freas). It was published in hardcover in 1957.",
+      "price": 9.00,
+      "publish_date": "1968-09-03"
+    }
+  }
+]

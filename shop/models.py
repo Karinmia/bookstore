@@ -1,4 +1,5 @@
 import uuid
+from datetime import date
 
 from django.db import models
 from django.utils import timezone
@@ -6,12 +7,13 @@ from django.utils import timezone
 
 class Book(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    isbn = models.TextField()
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
-    published_date = models.DateTimeField(
-            default=timezone.now, blank=True, null=True)
+    isbn = models.CharField(max_length=18)
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    description = models.CharField(max_length=500)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    # image = models.ImageField(upload_to = 'img/', default = 'img/default.jpg')
+    publish_date = models.DateField(default=date.today, blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
