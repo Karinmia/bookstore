@@ -1,13 +1,13 @@
-from rest_framework import generics
+# from rest_framework import generics
 
 from django.shortcuts import render, get_object_or_404, redirect
-from django.utils import timezone
 
 from .models import Book
 # from .serializers import SongsSerializer
 
+
 def book_list(request):
-    books = Book.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    books = Book.objects.order_by('publish_date')
     return render(request, 'shop/book_list.html', {'books': books})
 
 

@@ -1,0 +1,18 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    {% for book in books %}
+        <div class="col-3">
+            <div class="book">
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.author }}</p>
+                <!--<p>{{ book.description|linebreaksbr }}</p>-->
+                <p>ISBN: {{ book.isbn }}</p>
+                <p>{{ book.price }}</p>
+                <div class="date">
+                    {{ post.published_date }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
