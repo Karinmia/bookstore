@@ -1,15 +1,18 @@
 {% extends 'shop/base.html' %}
 
 {% block content %}
-   <div class="book">
-       <p>ISBN: {{ book.isbn }}</p>
-       <h3>{{ book.title }}</h3>
-       <p>{{ book.author }}</p>
-       <p>{{ book.description|linebreaksbr }}</p>
+<div class="book">
+    <a class="btn btn-info" href="{% url 'book_edit' pk=book.pk %}">
+        <i class="material-icons">edit</i> Edit
+    </a>
+    <p>ISBN: {{ book.isbn }}</p>
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.author }}</p>
+    <p>{{ book.description|linebreaksbr }}</p>
 
-       <p>${{ book.price }}</p>
-       <div class="date">
-           <p>Published at: {{ book.publish_date }}</p>
-       </div>
-   </div>
+    <p>${{ book.price }}</p>
+    <div class="date">
+        <p>Published at: {{ book.publish_date }}</p>
+    </div>
+</div>
 {% endblock %}

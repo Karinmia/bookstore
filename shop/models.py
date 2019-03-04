@@ -2,7 +2,6 @@ import uuid
 from datetime import date
 
 from django.db import models
-from django.utils import timezone
 
 
 class Book(models.Model):
@@ -16,7 +15,7 @@ class Book(models.Model):
     publish_date = models.DateField(default=date.today, blank=True, null=True)
 
     def publish(self):
-        self.published_date = timezone.now()
+        self.publish_date = date.today()
         self.save()
 
     def __str__(self):
