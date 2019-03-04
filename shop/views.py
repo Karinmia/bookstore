@@ -11,6 +11,6 @@ def book_list(request):
     return render(request, 'shop/book_list.html', {'books': books})
 
 
-def book_detail(request, pk):
+def book_details(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    return render(request, 'shop/book_detail.html', {'book': book})
+    return render(request, 'shop/book_details.html', {'book': book})

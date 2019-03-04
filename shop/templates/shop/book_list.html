@@ -4,13 +4,13 @@
     {% for book in books %}
         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 book-block">
             <div class="book">
-                <h3>{{ book.title }}</h3>
+                <h3><a href="{% url 'book_details' pk=book.pk %}">{{ book.title }}</a></h3>
                 <p>{{ book.author }}</p>
                 <!--<p>{{ book.description|linebreaksbr }}</p>-->
                 <p>ISBN: {{ book.isbn }}</p>
                 <p>{{ book.price }}</p>
                 <div class="date">
-                    {{ post.published_date }}
+                    {{ book.publish_date }}
                 </div>
             </div>
         </div>
