@@ -28,7 +28,7 @@ def book_new(request):
             return redirect('book_details', pk=book.pk)
     else:
         form = BookForm()
-    return render(request, 'blog/book_edit.html', {'form': form})
+    return render(request, 'shop/book_edit.html', {'form': form})
 
 
 def book_edit(request, pk):
@@ -41,4 +41,4 @@ def book_edit(request, pk):
             return redirect('book_details', pk=book.pk)
     else:
         form = BookForm(instance=book)
-    return render(request, 'blog/book_edit.html', {'form': form})
+    return render(request, 'shop/book_edit.html', {'form': form})
