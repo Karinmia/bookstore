@@ -1,7 +1,3 @@
-# from rest_framework import generics
-# from .serializers import SongsSerializer
-from datetime import date
-
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Book
