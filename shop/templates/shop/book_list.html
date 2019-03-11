@@ -1,29 +1,30 @@
 {% extends 'shop/base.html' %}
 
 {% block content %}
-<!--<div class="dropdown dropright">-->
-<!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
-<!--Order by:-->
-<!--</button>-->
-<!--<div class="dropdown-menu">-->
-<!--<a class="dropdown-item" href="#">Link 1</a>-->
-<!--<a class="dropdown-item" href="#">Link 2</a>-->
-<!--<a class="dropdown-item" href="#">Link 3</a>-->
-<!--</div>-->
-<!--</div>-->
-
 <div class="row">
-    <div class="form-group col-3">
-        <span>Order by:</span>
-        <select class="form-control" id="book_publish_order">
-            <option>New first</option>
-            <option>Old first</option>
-        </select>
+    <div class="dropdown dropright">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+            Order by
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="?new-first=True">New first</a>
+            <a class="dropdown-item" href="?order=old-first">Old first</a>
+        </div>
     </div>
 </div>
 
-<div class="row">
-    {% for book in books|dictsort:"price" %}
+<!--<div class="row">-->
+    <!--<div class="form-group col-3">-->
+        <!--<span>Order by:</span>-->
+        <!--<select class="form-control" id="book_publish_order">-->
+            <!--<option>New first</option>-->
+            <!--<option>Old first</option>-->
+        <!--</select>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="row" style="margin-top: 30px;">
+    {% for book in books %}
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 book-card">
         <div class="card book">
             <img class="card-img-top" src="" alt="Book image">
@@ -31,45 +32,52 @@
                 <h4 class="card-title">{{ book.title }}</h4>
                 <p class="card-text">{{ book.author }}</p>
                 <p class="date">
-                    {{ book.publish_date }}
+                    {{ book.publish_date|date:"d M Y" }}
                 </p>
                 <p class="card-text book-price">{{ book.price }}</p>
                 <a href="{% url 'book_details' pk=book.pk %}" class="btn btn-info stretched-link">See Details</a>
             </div>
         </div>
-
-        <!--<div class="book">-->
-        <!--<h3><a href="{% url 'book_details' pk=book.pk %}">{{ book.title }}</a></h3>-->
-        <!--<p>{{ book.author }}</p>-->
-        <!--&lt;!&ndash;<p>{{ book.description|linebreaksbr }}</p>&ndash;&gt;-->
-        <!--<p>ISBN: {{ book.isbn }}</p>-->
-        <!--<p class="book-price">{{ book.price }}</p>-->
-        <!--<div class="date">-->
-        <!--{{ book.publish_date }}-->
-        <!--</div>-->
-        <!--</div>-->
     </div>
+    <!--<div class="book">-->
+    <!--<h3><a href="{% url 'book_details' pk=book.pk %}">{{ book.title }}</a></h3>-->
+    <!--<p>{{ book.author }}</p>-->
+    <!--&lt;!&ndash;<p>{{ book.description|linebreaksbr }}</p>&ndash;&gt;-->
+    <!--<p>ISBN: {{ book.isbn }}</p>-->
+    <!--<p class="book-price">{{ book.price }}</p>-->
+    <!--<div class="date">-->
+    <!--{{ book.publish_date }}-->
+    <!--</div>-->
+    <!--</div>-->
     {% endfor %}
 </div>
 
 
 <script>
-    function sortDescending(a, b) {
-        let date1 = $(a).find(".date").text();
-        alert(date1);
-        date1 = date1.split('-');
-        alert(date1);
-        date1 = new Date(date1[2], date1[1] - 1, date1[0]);
+    (function ($) {
+        let container = $("#book-content");
+        let items = $(".book");
 
-        let date2 = $(b).find(".date").text();
-        date2 = date2.split('-');
-        date2 = new Date(date2[2], date2[1] - 1, date2[0]);
+        items.each(function () {
+            // Convert the string in 'data-event-date' attribute to a more
+            // standardized date format
+            let BCDate = $(this).attr("data-event-date").split(" ");
+            let standardDate = BCDate[1] + " " + BCDate[0] + " " + BCDate[2];
+            standardDate = new Date(standardDate).getTime();
+            $(this).attr("data-event-date", standardDate);
 
-        return date1 < date2 ? 1 : -1;
-    };
-    $(document).ready(function () {
-        $('#book-content .book').sort(sortDescending).appendTo('#book-content');
-    });
+        });
+
+
+        items.sort(function (a, b) {
+            a = parseFloat($(a).attr("data-event-date"));
+            b = parseFloat($(b).attr("data-event-date"));
+            return a > b ? -1 : a > b ? 1 : 0;
+        }).each(function () {
+            container.prepend(this);
+        });
+
+    })(jQuery);
 </script>
 
 {% endblock %}

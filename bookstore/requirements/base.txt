@@ -2,6 +2,7 @@ psycopg2-binary
 
 # Django
 Django>=2.0
+django-filter
 
 # Django REST Framework
 djangorestframework

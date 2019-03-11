@@ -14,9 +14,5 @@ class Book(models.Model):
     # image = models.ImageField(upload_to = 'img/', default = 'img/default.jpg')
     publish_date = models.DateField(default=date.today, blank=True, null=True)
 
-    def publish(self):
-        self.publish_date = date.today()
-        self.save()
-
     def __str__(self):
         return self.title

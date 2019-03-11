@@ -9,7 +9,13 @@ from .forms import BookForm
 
 
 def book_list(request):
-    books = Book.objects.order_by('publish_date')
+    books = Book.objects.all()
+
+    if "new-first" in request.GET:
+        books = books.order_by('-publish_date')
+    elif "old-first" in request.GET:
+        books = books.order_by('publish_date')
+
     return render(request, 'shop/book_list.html', {'books': books})
 
 
