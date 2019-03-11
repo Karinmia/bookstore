@@ -34,28 +34,9 @@
 </nav>
 
 <div class="container">
-    <!--<div class="dropdown dropright">-->
-        <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
-          <!--Order by:-->
-        <!--</button>-->
-        <!--<div class="dropdown-menu">-->
-          <!--<a class="dropdown-item" href="#">Link 1</a>-->
-          <!--<a class="dropdown-item" href="#">Link 2</a>-->
-          <!--<a class="dropdown-item" href="#">Link 3</a>-->
-        <!--</div>-->
-    <!--</div>-->
-    <div class="row">
-        <div class="form-group col-3">
-            <span>Order by:</span>
-            <select class="form-control" id="book_publish_order">
-                <option>New first</option>
-                <option>Old first</option>
-            </select>
-        </div>
-        <div class="row book-content">
-            {% block content %}
-            {% endblock %}
-        </div>
+    <div id="book-content">
+        {% block content %}
+        {% endblock %}
     </div>
 </div>
 

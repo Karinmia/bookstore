@@ -4,7 +4,7 @@
     padding: 20px 20px 20px 40px;
 }
 
-.book-content {
+#book-content {
     margin-bottom: 80px;
 }
 
@@ -15,6 +15,10 @@
 .book {
     margin: 0 10px 8px 0px;
     /*background-color: whitesmoke;*/
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .book img {
