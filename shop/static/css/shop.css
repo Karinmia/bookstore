@@ -5,16 +5,24 @@
 }
 
 .book-content {
-    margin-top: 30px;
+    margin-bottom: 80px;
 }
 
-.book-block {
-    border: 1px solid #ff9400;
-}
+/*.book-block {*/
+    /*border: 1px solid #ff9400;*/
+/*}*/
 
 .book {
-    padding: 0 10px 8px 0px;
-    background-color: whitesmoke;
+    margin: 0 10px 8px 0px;
+    /*background-color: whitesmoke;*/
+}
+
+.book img {
+    max-height: 300px;
+}
+
+nav {
+    background-color: #17a2b8;
 }
 
 .footer {
@@ -22,14 +30,10 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    /*padding-bottom: 20px;*/
     color: white;
+    background-color: #17a2b8;
     text-align: center;
 }
-
-/*.footer {*/
-    /*flex-shrink: 0;*/
-/*}*/
 
 .footer p {
     margin: 20px 0 20px 0;

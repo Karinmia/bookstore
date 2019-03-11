@@ -16,7 +16,7 @@
     <p>Test task by Karyna Avramenko</p>
 </div>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm navbar-dark">
     <a class="navbar-brand" href="/">Shop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -34,20 +34,32 @@
 </nav>
 
 <div class="container">
-    <div class="form-group">
-        <h4>Order by:</h4>
-        <select class="form-control" id="book_publish_order">
-            <option>Oldest first</option>
-            <option>Newest first</option>
-        </select>
-    </div>
-    <div class="row book-content">
-        {% block content %}
-        {% endblock %}
+    <!--<div class="dropdown dropright">-->
+        <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+          <!--Order by:-->
+        <!--</button>-->
+        <!--<div class="dropdown-menu">-->
+          <!--<a class="dropdown-item" href="#">Link 1</a>-->
+          <!--<a class="dropdown-item" href="#">Link 2</a>-->
+          <!--<a class="dropdown-item" href="#">Link 3</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="row">
+        <div class="form-group col-3">
+            <span>Order by:</span>
+            <select class="form-control" id="book_publish_order">
+                <option>New first</option>
+                <option>Old first</option>
+            </select>
+        </div>
+        <div class="row book-content">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
 </div>
 
-<footer class="footer bg-dark">
+<footer class="footer">
     <p>
         © 2018-2019 Copyright: Bookstore
     </p>
