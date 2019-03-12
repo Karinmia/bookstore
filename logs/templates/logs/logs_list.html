@@ -20,7 +20,11 @@
     <h1>CRUD Logs</h1>
     {% for log in crud_logs %}
     <div class="row" style="margin-left: 0px;">
-        [{{log.created|date:"Y-m-d G:i:s e"}}] {{log.msg}} {{log.trace}}
+        {% if log.trace %}
+            [{{log.create_datetime|date:"Y-m-d G:i:s e"}}] {{log.level}} {{log.msg}} {{log.trace}}
+        {% else %}
+            [{{log.create_datetime|date:"Y-m-d G:i:s e"}}] {{log.level}} {{log.msg}}
+        {% endif %}
     </div>
     {% endfor %}
 </div>

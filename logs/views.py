@@ -5,15 +5,15 @@ from .models import CRUDLog
 
 
 def logs_list(request):
-    crud_logs = CRUDLog.objects.order_by('-created')[:10]
-    http_logs = get_http_logs_dict()
+    crud_logs = get_logs_from_db("db")
+    http_logs = get_logs_from_db("django.server")
 
     return render(request, 'logs/logs_list.html', {'http_logs': http_logs, 'crud_logs': crud_logs})
 
 
-def get_http_logs_dict():
+def get_logs_from_db(logger_name):
     with connection.cursor() as cursor:
-        cursor.execute("SELECT * FROM django_db_logger_statuslog WHERE logger_name = %s ORDER BY create_datetime DESC", ["django.server"])
+        cursor.execute("SELECT * FROM django_db_logger_statuslog WHERE logger_name = %s ORDER BY create_datetime DESC", [logger_name])
         return fetchall_to_dict(cursor)
 
 
