@@ -6,10 +6,7 @@ from .models import CRUDLog
 
 def logs_list(request):
     crud_logs = CRUDLog.objects.order_by('-created')[:10]
-
     http_logs = get_http_logs_dict()
-    print("\nHTTP logs")
-    print(http_logs)
 
     return render(request, 'logs/logs_list.html', {'http_logs': http_logs, 'crud_logs': crud_logs})
 
