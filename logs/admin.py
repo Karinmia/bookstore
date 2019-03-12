@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import HttpLog, CRUDLog
+from .models import CRUDLog
 
-admin.site.register(HttpLog)
 admin.site.register(CRUDLog)

@@ -2,17 +2,21 @@
 
 {% block content %}
 
-<div class="row" style="margin-top: 30px;">
+<div class="container" style="margin-top: 30px;">
     <h1>HTTP Logs</h1>
     {% for log in http_logs %}
-    <p>[{{log.created}}] {{log.request_type}} {{log.title}}</p>
+        <div class="row" style="margin-left: 0px;">
+            [{{log.create_datetime}}]  {{log.level}}  {{log.msg}}  {{log.trace}}
+        </div>
     {% endfor %}
 </div>
 
-<div class="row" style="margin-top: 30px;">
+<div class="container" style="margin-top: 30px;">
     <h1>CRUD Logs</h1>
     {% for log in crud_logs %}
-    <p>[{{log.created}}] {{log.request_type}} {{log.title}}</p>
+        <div class="row" style="margin-left: 0px;">
+            [{{log.created}}]  {{log.msg}}  {{log.trace}}
+        </div>
     {% endfor %}
 </div>
 
