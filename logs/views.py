@@ -1,8 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db import connection
 
-from .models import CRUDLog
-
 
 def logs_list(request):
     crud_logs = get_logs_from_db("db")
@@ -13,7 +11,8 @@ def logs_list(request):
 
 def get_logs_from_db(logger_name):
     with connection.cursor() as cursor:
-        cursor.execute("SELECT * FROM django_db_logger_statuslog WHERE logger_name = %s ORDER BY create_datetime DESC", [logger_name])
+        cursor.execute("SELECT * FROM django_db_logger_statuslog WHERE logger_name = %s ORDER BY create_datetime DESC",
+                       [logger_name])
         return fetchall_to_dict(cursor)
 
 
