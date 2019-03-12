@@ -92,20 +92,16 @@ LOGGING = {
             'handlers': ['db_log'],
             'level': 'DEBUG'
         },
-        'http': {
-            'handlers': ['db_log'],
-            'level': 'DEBUG'
-        },
-        'django.request': {
-            'handlers': ['db_log'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
         'django.server': {
             'handlers': ['db_log'],
             'level': 'INFO',
             'propagate': False,
         },
+        'django.db.backends': {
+            'handlers': ['db_log'],
+            'level': 'INFO',
+            'propagate': False,
+        }
     }
 }
 
