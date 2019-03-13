@@ -13,21 +13,10 @@
     </div>
 </div>
 
-<!--<div class="row">-->
-<!--<div class="form-group col-3">-->
-<!--<span>Order by:</span>-->
-<!--<select class="form-control" id="book_publish_order">-->
-<!--<option>New first</option>-->
-<!--<option>Old first</option>-->
-<!--</select>-->
-<!--</div>-->
-<!--</div>-->
-
 <div class="row" style="margin-top: 30px;">
     {% for book in books %}
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 book-card">
         <div class="card book">
-            <img class="card-img-top" src="" alt="Book image">
             <div class="card-body">
                 <h4 class="card-title">{{ book.title }}</h4>
                 <p class="card-text">{{ book.author }}</p>
@@ -39,16 +28,6 @@
             </div>
         </div>
     </div>
-    <!--<div class="book">-->
-    <!--<h3><a href="{% url 'book_details' pk=book.pk %}">{{ book.title }}</a></h3>-->
-    <!--<p>{{ book.author }}</p>-->
-    <!--&lt;!&ndash;<p>{{ book.description|linebreaksbr }}</p>&ndash;&gt;-->
-    <!--<p>ISBN: {{ book.isbn }}</p>-->
-    <!--<p class="book-price">{{ book.price }}</p>-->
-    <!--<div class="date">-->
-    <!--{{ book.publish_date }}-->
-    <!--</div>-->
-    <!--</div>-->
     {% endfor %}
 </div>
 

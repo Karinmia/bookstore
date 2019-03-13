@@ -11,7 +11,6 @@ class Book(models.Model):
     author = models.CharField(max_length=255)
     description = models.CharField(max_length=500)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    # image = models.ImageField(upload_to = 'img/', default = 'img/default.jpg')
     publish_date = models.DateField(default=date.today, blank=True, null=True)
 
     def __str__(self):
