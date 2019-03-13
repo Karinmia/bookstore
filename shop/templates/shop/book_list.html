@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row">
     <div class="dropdown dropright">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" style="margin-left: 15px;">
             Order by
         </button>
         <div class="dropdown-menu">
@@ -21,9 +21,9 @@
                 <h4 class="card-title">{{ book.title }}</h4>
                 <p class="card-text">{{ book.author }}</p>
                 <p class="date">
-                    {{ book.publish_date|date:"d M Y" }}
+                    {{ book.publish_date|date:"Y M d" }}
                 </p>
-                <p class="card-text book-price">{{ book.price }}</p>
+                <p class="card-text book-price">$ {{ book.price }}</p>
                 <a href="{% url 'book_details' pk=book.pk %}" class="btn btn-info stretched-link">See Details</a>
             </div>
         </div>

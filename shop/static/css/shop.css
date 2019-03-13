@@ -1,7 +1,18 @@
-.page-header {
-    background-color: #ff9400;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+.jumbotron {
+    background-color: #afe5ff;
+    padding: 30px;
+}
+
+nav {
+    background-color: #17a2b8;
+}
+
+nav a {
+    color: white!important;
+}
+
+nav a:hover {
+    color: black!important;
 }
 
 #book-content {
@@ -17,12 +28,8 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.book img {
-    max-height: 300px;
-}
-
-nav {
-    background-color: #17a2b8;
+.book-details {
+    margin-top: 20px;
 }
 
 .footer {

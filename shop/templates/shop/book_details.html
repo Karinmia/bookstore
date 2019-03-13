@@ -1,18 +1,24 @@
 {% extends 'shop/base.html' %}
 
 {% block content %}
-<div class="book">
-    <a class="btn btn-info" href="{% url 'book_edit' pk=book.pk %}">
-        <i class="material-icons">edit</i> Edit
-    </a>
-    <p>ISBN: {{ book.isbn }}</p>
-    <h3>{{ book.title }}</h3>
-    <p>{{ book.author }}</p>
-    <p>{{ book.description|linebreaksbr }}</p>
 
-    <p>${{ book.price }}</p>
-    <div class="date">
+{% if request.user.is_superuser %}
+<a class="btn btn-info" href="{% url 'book_edit' pk=book.pk %}">
+    Edit
+</a>
+<a class="btn btn-warning" href="{% url 'book_edit' pk=book.pk %}">
+    Delete
+</a>
+{% endif %}
+
+<div class="book-details">
+    <h3>{{ book.title }} - {{ book.author }}</h3>
+    <p></p>
+    <p>{{ book.description|linebreaksbr }}</p>
+    <p>ISBN: {{ book.isbn }}</p>
+    <p class="date">
         <p>Published at: {{ book.publish_date }}</p>
-    </div>
+    </p>
+    <p>${{ book.price }}</p>
 </div>
 {% endblock %}
