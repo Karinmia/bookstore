@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="row">
-    <div class="dropdown dropright">
+    <div class="dropdown">
         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" style="margin-left: 15px;">
             Order by
         </button>
@@ -12,7 +12,7 @@
         </div>
     </div>
     {% if request.user.is_superuser %}
-    <a class="btn btn-success" href="book/new" style="margin-left: 10px">
+    <a class="btn btn-success" href="book/new" style="margin-left: 15px">
         New book
     </a>
     {% endif %}

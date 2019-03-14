@@ -26,19 +26,24 @@ def book_list(request):
 def book_details(request, pk):
     book = get_object_or_404(Book, pk=pk)
 
-    db_logger.info('Get book details for id: {}'.format(book.pk))
+    db_logger.info('Get details for book with id: {}'.format(book.pk))
 
     return render(request, 'shop/book_details.html', {'book': book})
 
 
 def book_edit(request, pk=None):
     book = get_object_or_404(Book, pk=pk) if pk else None
+
     if request.method == "POST":
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
             book = form.save(commit=False)
             book.save()
-            db_logger.info('Successfully edited book with id: {}'.format(book.pk))
+
+            if pk:
+                db_logger.info('Successfully edited book with id: {}'.format(book.pk))
+            else:
+                db_logger.info('Successfully created new book with id: {}'.format(book.pk))
 
             return redirect('book_details', pk=book.pk)
     else:
@@ -55,8 +60,9 @@ def book_edit(request, pk=None):
 def book_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     try:
+        book_id_ = book.pk
         book.delete()
-        db_logger.info('Deleted book with id: {}'.format(book.pk))
+        db_logger.info('Deleted book with id: {}'.format(book_id_))
     except:
-        db_logger.info('Can not delete book with id: {}'.format(book.pk))
+        db_logger.info('Can not delete this book.')
     return redirect('book_list')

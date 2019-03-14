@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h2>Edit book</h2>
+<h2>Update book</h2>
 <form method="POST" action="{{ action }}">
     {% csrf_token %}
     {{ form|crispy }}
