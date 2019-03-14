@@ -29,6 +29,7 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = [
     'django_db_logger',
+    'crispy_forms',
 ]
 LOCAL_APPS = [
     'shop',
@@ -36,6 +37,8 @@ LOCAL_APPS = [
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # MIDDLEWARE
 MIDDLEWARE = [

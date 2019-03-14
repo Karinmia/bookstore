@@ -1,6 +1,8 @@
 import logging
 
+from django.views.generic import CreateView
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
 from .models import Book
 from .forms import BookForm
@@ -29,24 +31,8 @@ def book_details(request, pk):
     return render(request, 'shop/book_details.html', {'book': book})
 
 
-def book_new(request):
-    if request.method == "POST":
-        form = BookForm(request.POST)
-        if form.is_valid():
-            book = form.save(commit=False)
-            # book.publish_date = date.today()
-            book.save()
-            db_logger.info('Successfully created book with id: {}'.format(book.pk))
-
-            return redirect('book_details', pk=book.pk)
-    else:
-        form = BookForm()
-
-    return render(request, 'shop/book_edit.html', {'form': form})
-
-
-def book_edit(request, pk):
-    book = get_object_or_404(Book, pk=pk)
+def book_edit(request, pk=None):
+    book = get_object_or_404(Book, pk=pk) if pk else None
     if request.method == "POST":
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
@@ -57,4 +43,20 @@ def book_edit(request, pk):
             return redirect('book_details', pk=book.pk)
     else:
         form = BookForm(instance=book)
-    return render(request, 'shop/book_edit.html', {'form': form})
+
+    if pk:
+        action = reverse(book_edit, args=[pk])
+    else:
+        action = reverse(book_edit)
+
+    return render(request, 'shop/book_edit.html', {'form': form, 'action': action})
+
+
+def book_delete(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    try:
+        book.delete()
+        db_logger.info('Deleted book with id: {}'.format(book.pk))
+    except:
+        db_logger.info('Can not delete book with id: {}'.format(book.pk))
+    return redirect('book_list')

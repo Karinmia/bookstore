@@ -1,5 +1,6 @@
 psycopg2-binary
 
-# Django
 Django>=2.0
+
 django-db-logger
+django-crispy-forms

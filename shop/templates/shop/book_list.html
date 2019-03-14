@@ -11,6 +11,11 @@
             <a class="dropdown-item" href="?order=old-first">Old first</a>
         </div>
     </div>
+    {% if request.user.is_superuser %}
+    <a class="btn btn-success" href="book/new" style="margin-left: 10px">
+        New book
+    </a>
+    {% endif %}
 </div>
 
 <div class="row" style="margin-top: 30px;">

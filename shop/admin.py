@@ -8,3 +8,5 @@ class BookAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Book, BookAdmin)
+admin.site.site_header = "Books Management"
+admin.site.site_title = "Books Management"
