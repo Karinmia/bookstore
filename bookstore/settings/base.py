@@ -99,11 +99,6 @@ LOGGING = {
             'handlers': ['db_log'],
             'level': 'INFO',
             'propagate': False,
-        },
-        'django.db.backends': {
-            'handlers': ['db_log'],
-            'level': 'INFO',
-            'propagate': False,
         }
     }
 }

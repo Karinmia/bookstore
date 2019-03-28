@@ -15,3 +15,14 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    def as_dict(self):
+        return {
+            "id": self.id,
+            "isbn": self.isbn,
+            "title": self.title,
+            "author": self.author,
+            "description": self.description,
+            "price": self.price,
+            "publish_date": self.publish_date
+        }
