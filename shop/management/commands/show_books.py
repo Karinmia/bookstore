@@ -10,10 +10,6 @@ class Command(BaseCommand):
            '\n --sort 2 (for descending)'
 
     def add_arguments(self, parser):
-        # Positional arguments
-        # parser.add_argument('sort', nargs='+', type=int)
-
-        # Named (optional) arguments
         parser.add_argument(
             '--sort',
             dest='sort',
