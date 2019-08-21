@@ -1,6 +1,13 @@
 psycopg2-binary
-
 Django>=2.0
-
+djangorestframework
+django-cors-headers
+django-storages
+boto3
 django-db-logger
 django-crispy-forms
+
+
+# Docs
+drf-yasg
+packaging

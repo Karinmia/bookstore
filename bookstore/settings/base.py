@@ -28,10 +28,16 @@ DJANGO_APPS = [
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_yasg',
+    'corsheaders',
+    'storages',
     'django_db_logger',
     'crispy_forms',
 ]
 LOCAL_APPS = [
+    'accounts',
     'shop',
     'logs',
 ]
@@ -103,18 +109,41 @@ LOGGING = {
     }
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+}
+
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'db',
-        'NAME': 'dev',
-        'USER': 'docker',
-        'PASSWORD': 'docker'
+        'NAME': 'bookstore',
+        'USER': 'karinmia',
+        'PASSWORD': 'avkar333',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+# Using custom user model
+# https://docs.djangoproject.com/en/2.2/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project
+AUTH_USER_MODEL = 'accounts.User'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.EmailOrUsernameAuthBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -152,3 +181,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+UPLOAD_DIR = MEDIA_ROOT
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
+FIXTURE_DIRS = (
+   '/bookstore/shop/fixtures/',
+)
